@@ -9,8 +9,8 @@ export default defineNuxtConfig({
   extends: [
     // while developing, use from github, if stable, use from npm
     // 
-    'github:theaterpedia/theaterpedia-core/packages/theme#episodes/main',
-    'github:theaterpedia/theaterpedia-core/packages/data#episodes/main',
+    'github:theaterpedia/theaterpedia-core/packages/theme',
+    'github:theaterpedia/theaterpedia-core/packages/data',
     // '@crearis/theme-main',
     // '@crearis/data-main/',
   ],
