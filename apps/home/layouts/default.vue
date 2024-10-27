@@ -67,7 +67,7 @@ const NuxtLink = resolveComponent('NuxtLink')
       <template #suffix>
         <SfIconExpandMore class="hidden lg:block" />
       </template>
-      <span class="hidden lg:flex whitespace-nowrap">Cat: Women</span>
+      <span class="hidden lg:flex whitespace-nowrap">Portal</span>
     </SfButton>
     <NuxtLazyHydrate when-visible>
       <UiSearch class="hidden md:block flex-1" />
@@ -145,11 +145,6 @@ const NuxtLink = resolveComponent('NuxtLink')
       <SfIconSearch />
     </SfButton>
   </UiNavbarTop>
-  <NarrowContainer v-if="breadcrumbs">
-    <div class="p-4 md:px-0">
-      <LazyUiBreadcrumbs :breadcrumbs="breadcrumbs" />
-    </div>
-  </NarrowContainer>
   <main>
     <slot />
   </main>
