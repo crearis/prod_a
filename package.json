@@ -16,13 +16,13 @@
     "test:watch": "cd apps/home && yarn test:watch",
     "test:turbo": "turbo run test",
     "type-check": "turbo run type-check",
-    "codegen": "cd packages/data && yarn codegen"
+    "codegen": "cd apps/home && yarn codegen"
   },
   "devDependencies": {
     "@crearis/eslint-config-custom": "*",
     "@release-it/conventional-changelog": "^8.0.1",
     "release-it": "^17.0.1",
-    "turbo": "latest" 
+    "turbo": "1.13.4" 
   },
   "workspaces": [
     "packages/**/*",
@@ -31,5 +31,8 @@
   "packageManager": "yarn@1.22.19",
   "engines": {
     "node": ">=v20.0.0"
+  },
+  "resolutions": {
+    "rollup": "4.24.0"
   }
 }

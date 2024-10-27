@@ -1,27 +1,37 @@
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path'
-import { defineNuxtConfig } from 'nuxt/config'
 
 const currentDir = dirname(fileURLToPath(import.meta.url))
 const isRootDir = !(currentDir.endsWith('apps/home'))
 
 export default defineNuxtConfig({
+  compatibilityDate: '2024-10-27',
   extends: [
     // while developing, use from github, if stable, use from npm
-    // 
-    'github:theaterpedia/theaterpedia-core/packages/theme',
-    'github:theaterpedia/theaterpedia-core/packages/data',
-    // '@crearis/theme-main',
-    // '@crearis/data-main/',
+    //
+    // 'github:theaterpedia/theaterpedia-core/packages/theme',
+    // 'github:theaterpedia/theaterpedia-core/packages/data',
+    '@crearis/theme-main',
+    '@crearis/data-main/',
   ],
 
   typescript: {
-    typeCheck: false
+    typeCheck: false,
   },
 
   i18n: {
     // a bit strange, but it's the only way to make it work with the current setup (yarn build fails otherwise)
     vueI18n: isRootDir ? './node_modules/@crearis/theme-main/i18n.config.ts' : '../../node_modules/@crearis/theme-main/i18n.config.ts',
+  },
+
+  modules: ['@nuxt/test-utils', 'nuxt-module-eslint-config'],
+
+  eslintConfig: { setup: false },
+
+  vite: {
+    optimizeDeps: {
+      include: ["lodash-es"],
+    },
   },
 
   nitro: {
@@ -55,5 +65,5 @@ export default defineNuxtConfig({
     timeline: {
       enabled: true,
     },
-  },
+  },  
 })
